@@ -1,0 +1,162 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="org.waxberry.zsclibrary.fragment.MainPageFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/black" >
+
+    <LinearLayout
+        android:id="@+id/main_page_title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:background="@android:color/transparent">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="18dip"
+            android:lines="1"
+            android:textColor="@color/white"
+            android:textSize="@dimen/enormous_text_size"
+            android:textStyle="bold"
+            android:text="中山学院图书馆"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/main_page_btn_up_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/purple">
+
+        <Button
+            android:id="@+id/btn_information"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingTop="24dip"
+            android:paddingBottom="24dip"
+            android:background="@drawable/selectable_item_color"
+            android:textStyle="bold"
+            android:textSize="@dimen/huge_text_size"
+            android:textColor="@color/white"
+            android:text="书目信息"/>
+
+        <include
+            layout="@layout/text_vertical_divider_light"/>
+
+        <Button
+            android:id="@+id/btn_service"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingTop="24dip"
+            android:paddingBottom="24dip"
+            android:background="@drawable/selectable_item_color"
+            android:textStyle="bold"
+            android:textSize="@dimen/huge_text_size"
+            android:textColor="@color/white"
+            android:text="读者服务"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:baselineAligned="false"
+        android:background="@color/purple">
+
+        <include
+            android:layout_width="0dip"
+            android:layout_height="1.0dip"
+            android:layout_weight="1"
+            android:layout_marginStart="8dip"
+            android:layout_marginLeft="8dip"
+            android:layout_marginEnd="8dip"
+            android:layout_marginRight="8dip"
+            layout="@layout/text_horizontal_divider_light"/>
+
+        <include
+            android:layout_width="0dip"
+            android:layout_height="1.0dip"
+            android:layout_weight="1"
+            android:layout_marginStart="8dip"
+            android:layout_marginLeft="8dip"
+            android:layout_marginEnd="8dip"
+            android:layout_marginRight="8dip"
+            layout="@layout/text_horizontal_divider_light"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/main_page_btn_down_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/purple">
+
+        <Button
+            android:id="@+id/btn_digital"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingTop="24dip"
+            android:paddingBottom="24dip"
+            android:background="@drawable/selectable_item_color"
+            android:textStyle="bold"
+            android:textSize="@dimen/huge_text_size"
+            android:textColor="@color/white"
+            android:text="数字资源"/>
+
+        <include
+            layout="@layout/text_vertical_divider_light"/>
+
+        <Button
+            android:id="@+id/btn_platform"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingTop="24dip"
+            android:paddingBottom="24dip"
+            android:background="@drawable/selectable_item_color"
+            android:textStyle="bold"
+            android:textSize="@dimen/huge_text_size"
+            android:textColor="@color/white"
+            android:text="互动平台"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/main_page_bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="48dip"
+        android:orientation="horizontal"
+        android:background="@android:color/transparent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="end|center_vertical"
+            android:padding="8dip"
+            android:lines="1"
+            android:textColor="@color/white"
+            android:textSize="@dimen/large_text_size"
+            android:textStyle="normal"
+            android:text="电子科技大学中山学院"/>
+
+    </LinearLayout>
+
+</LinearLayout>
