@@ -20,6 +20,8 @@ import org.waxberry.zsclibrary.utils.APIUtils;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by Waxberry on 2015/1/21.
@@ -109,16 +111,25 @@ public class DataRequester {
         size = row.size();
         for (int i = 0; i < size; i+=3)
         {
+            // 获取第一个td片段。
             content = row.get(i).getElementsByTag("td").first();
             name = content.getElementsByClass("basic").first().text();
             detailLink = content.getElementsByTag("a").first().attr("href");
             indexNum = content.getElementsByClass("indexnum").first()
                     .getElementsByTag("strong").first().text();
-            author = content.html();
+            Pattern p = Pattern.compile("</span>([\\s\\S]*?)</td>");
+            Matcher m = p.matcher(content.toString());
+            author = "";
+            if(m.find())
+            {
+                author  = m.group(1);
+            }
+            // 获取第二个td片段。
             content = row.get(i + 1).getElementsByTag("td").first();
             viewLoan = content.getElementsByClass("viewloan").first().text();
+            // 获取第三个td片段。
             content = row.get(i + 2).getElementsByTag("td").first();
-            searchNote = content.getElementsByClass("searchnote").first().text();
+            searchNote = content.getElementsByClass("searchnote").first().html().replace("<br>", "\n");
 
             Book book = new Book(name, author, indexNum, viewLoan, searchNote, detailLink);
             mList.add(book);
@@ -134,4 +145,36 @@ public class DataRequester {
         return mList;
     }
 
+    public List<BookDetail> GetBookSearchResult(String strURL)
+    {
+        String strResult = "";
+        List<BookDetail> mList = new ArrayList<BookDetail>();
+
+        strResult = requestDataFromServerByHttpGet(strURL);
+
+        if(strResult.equals(""))
+        {
+            return mList;
+        }
+
+        int table_size, row_size;
+        String name, author, isbn, press, information, title, categoryNum, theme, version ,
+                date, indexNum, viewLoan, searchNote, code, volNum, status, type;
+
+        Document doc = Jsoup.parse(strResult);
+        Element content, status_content;
+        Elements tables, row;
+        content = doc.body();
+        content = content.getElementsByClass("viewbody").first();
+        tables = content.getElementsByTag("table");
+
+        row = tables.get(0).getElementsByTag("tr");
+        row_size = row.size();
+        for (int i = 0; i < row_size; i++)
+        {
+            Log.d("tr", row.html());
+        }
+
+        return mList;
+    }
 }
